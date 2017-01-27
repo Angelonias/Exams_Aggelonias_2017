@@ -30,7 +30,6 @@ public class FetchMerchantTask extends AsyncTask<String,Void,ArrayList<Merchant>
     }
 
     private ArrayList<Merchant> getMerchantsFromJson(String merchantJsonStr) throws JSONException {
-        Log.i("HI", merchantJsonStr);
         ArrayList<Merchant> merchants = new ArrayList<>();
         try{
             JSONArray merchantsArray = new JSONArray(merchantJsonStr);
@@ -42,16 +41,10 @@ public class FetchMerchantTask extends AsyncTask<String,Void,ArrayList<Merchant>
                 m.legalName = obj.getString("legalName");
                 JSONObject contact = obj.getJSONObject("contactPoint");
                 m.address = contact.getString("streetAddress");
-                JSONObject rating = new JSONObject("aggregateRating");
+                JSONObject rating = obj.getJSONObject("aggregateRating");
                 m.review = rating.getString("ratingValue");
-
+                merchants.add(m);
             }
-
-
-
-
-
-            //......
             Log.d(LOG_TAG, "Merchant Fetching Complete. " + merchants.size() + "merchants inserted");
             return  merchants;
         }catch (JSONException e) {
@@ -63,6 +56,7 @@ public class FetchMerchantTask extends AsyncTask<String,Void,ArrayList<Merchant>
 
     @Override
     protected ArrayList<Merchant> doInBackground(String... params) {
+        Log.i("TASK", "called");
 
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
@@ -131,6 +125,9 @@ public class FetchMerchantTask extends AsyncTask<String,Void,ArrayList<Merchant>
     protected void onPostExecute(ArrayList<Merchant> merchants) {
         if(merchants.size() > 0){
             this.merchantAdapter.clear();
+            for(int i = 0; i < merchants.size(); i++) {
+                merchantAdapter.add(merchants.get(i));
+            }
             //.....
         }
     }
