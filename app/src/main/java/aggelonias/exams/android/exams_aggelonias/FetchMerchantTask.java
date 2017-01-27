@@ -6,6 +6,7 @@ import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,7 +34,18 @@ public class FetchMerchantTask extends AsyncTask<String,Void,ArrayList<Merchant>
         ArrayList<Merchant> merchants = new ArrayList<>();
         try{
             JSONArray merchantsArray = new JSONArray(merchantJsonStr);
-            //.....
+            for(int i = 0; i < merchantsArray.length(); i++) {
+                Merchant m = new Merchant();
+                JSONObject obj = merchantsArray.getJSONObject(i);
+                JSONObject cat = obj.getJSONObject("merchantCategory");
+                m.category = cat.getString("name");
+                m.legalName = obj.getString("legalName");
+                JSONObject contact = obj.getJSONObject("contactPoint");
+                m.address = contact.getString("streetAddress");
+                JSONObject rating = new JSONObject("aggregateRating");
+                m.review = rating.getString("ratingValue");
+
+            }
 
 
 

@@ -14,27 +14,43 @@
         android:layout_height="wrap_content"/>
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="1">
         <TextView
             android:id="@+id/list_item_merchant_legal_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"/>
         <TextView
             android:id="@+id/list_item_merchant_category_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_alignParentLeft="true"
+            android:layout_above="@id/list_item_merchant_address"/>
         <TextView
             android:id="@+id/list_item_merchant_address"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignBottomParent="true"/>
         <TextView
             android:id="@+id/list_item_merchant_rating"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@id/star"/>
         <ImageView
+            android:id="@+id/star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/star"/>
+            android:src="@drawable/star"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
 
