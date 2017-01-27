@@ -9,7 +9,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //hi
+        if(savedInstanceState == null){
+            getFragmentManager().beginTransaction().add(R.id.activity_main, new MerchantFragment()).commit();
+        }
     }
 }
