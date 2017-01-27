@@ -45,8 +45,11 @@ public class MerchantAdapter extends ArrayAdapter<Merchant> {
         }
 
         viewHolder.imageView.setImageResource(R.drawable.logo);
-        viewHolder.legalNameView.setText(/*m.getLegalName()*/"");
-        //.....
+        viewHolder.legalNameView.setText(merchants.get(position).legalName);
+        viewHolder.categoryNameView.setText(merchants.get(position).category);
+        viewHolder.addressView.setText(merchants.get(position).address);
+        viewHolder.ratingView.setText(merchants.get(position).review);
+
         return  rowView;
     }
 

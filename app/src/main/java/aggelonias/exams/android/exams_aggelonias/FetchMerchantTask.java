@@ -29,6 +29,7 @@ public class FetchMerchantTask extends AsyncTask<String,Void,ArrayList<Merchant>
     }
 
     private ArrayList<Merchant> getMerchantsFromJson(String merchantJsonStr) throws JSONException {
+        Log.i("HI", merchantJsonStr);
         ArrayList<Merchant> merchants = new ArrayList<>();
         try{
             JSONArray merchantsArray = new JSONArray(merchantJsonStr);

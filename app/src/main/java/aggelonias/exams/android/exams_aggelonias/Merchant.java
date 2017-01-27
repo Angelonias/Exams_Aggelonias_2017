@@ -6,11 +6,11 @@ package aggelonias.exams.android.exams_aggelonias;
 
 public class Merchant {
 
-    private String id;
-    private String legalName;
-    private String category;
-    private String address;
-    private String imageUrl;
-    private String review;
+    public String id;
+    public String legalName;
+    public String category;
+    public String address;
+    public String imageUrl;
+    public String review;
 
 }
